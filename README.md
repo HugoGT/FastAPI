@@ -4,8 +4,11 @@ Hola a todos, en este pequeño tutorial veremos como instalar FastAPI y una pequ
 FastAPI se destaca por su alta velocidad y rendimiento, es un framework completo para construir APIs en Python, que proporciona herramientas para facilitar el desarrollo y aumentar el rendimiento de las aplicaciones web.
 ___
 ## **Requisitos**
-### Para poder llevar el curso sin problemas usaremos VS Code y la extensión *Thunder Client*
+### Para poder llevar el curso sin problemas usaremos VS Code y las extensiones *Thunder Client* y *SQLite Viewer*
 
+#### **SQLite Viewer**
+![SQLite Viewer extension installation](src/sqlite_installation.png)
+#### **Thunder Client**
 ![Thunder Client extension installation](src/thunder_installation.jpg)
 
 ___
