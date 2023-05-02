@@ -2,34 +2,33 @@
 
 import csv
 
-from sqlalchemy import Column, Integer, String, Float
+from sqlalchemy import Column, Integer, String, Float, Table, MetaData
 
 from database import Base, Session, engine
 
 
-class Book(Base):
-    __tablename__ = "books"
+meta = MetaData()
 
-    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
-    title = Column(String(250), nullable=True)
-    subtitle = Column(String(250), nullable=True)
-    authors = Column(String(250), nullable=True)
-    categories = Column(String(250), nullable=True)
-    published_year = Column(Integer, nullable=True)
-    average_rating = Column(Float(10), nullable=True)
-    num_pages = Column(Integer, nullable=True)
-    ratings_count = Column(Integer, nullable=True)
-
+books = Table('books', meta,
+    Column('id', Integer, primary_key=True),
+    Column('title', String),
+    Column('subtitle', String),
+    Column('authors', String),
+    Column('categories', String),
+    Column('published_year', Integer),
+    Column('average_rating', Float),
+    Column('num_pages', Integer),
+    Column('ratings_count', Integer)
+)
+Base.metadata.create_all(bind=engine)
 
 # Filling the database
 def run():
-    Base.metadata.create_all(bind=engine)
-
     with open('database/books.csv', mode='r') as file:
         reader = csv.DictReader(file)
         db = Session()
-        for row in reader:
-            book = Book(**row)
+        for book in reader:
+            db.execute(books.insert().values(**book))
             db.add(book)
         db.commit()
         db.close()
