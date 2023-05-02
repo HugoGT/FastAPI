@@ -7,5 +7,5 @@ app = FastAPI()
 
 
 @app.get("/")
-def index():
-    return {"message":"Hola mundo!"}
+def get_books():
+    return {'message': 'Hola mundo!'}
