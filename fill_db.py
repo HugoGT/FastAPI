@@ -21,14 +21,19 @@ class Book(Base):
     ratings_count = Column(Integer, nullable=True)
 
 
-Base.metadata.create_all(bind=engine)
-
 # Filling the database
-with open('database/books.csv', mode='r') as file:
-    reader = csv.DictReader(file)
-    db = Session()
-    for row in reader:
-        book = Book(**row)
-        db.add(book)
-    db.commit()
-    db.close()
+def run():
+    Base.metadata.create_all(bind=engine)
+
+    with open('database/books.csv', mode='r') as file:
+        reader = csv.DictReader(file)
+        db = Session()
+        for row in reader:
+            book = Book(**row)
+            db.add(book)
+        db.commit()
+        db.close()
+
+
+if __name__ == '__main__':
+    run()
