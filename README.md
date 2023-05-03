@@ -8,7 +8,7 @@ Para poder llevar el curso sin problemas usaremos VSCode y las extensiones *Thun
 
 ___
 ## **Configuración del proyecto**
-### 1. Crear una carpeta donde irá todo el proyecto, dentro utilizaremos git bash
+### 1. Crea una carpeta donde irá todo el proyecto y ábrela, una vez dentro dale click derecho y abre git bash
 
 ![Git bash open](src/git_bash.jpeg)
 
